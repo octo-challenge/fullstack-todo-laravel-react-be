@@ -44,7 +44,13 @@ api에서 이것을 어떻게 해결할 것인가?
     ```
 5. 이제 실제 요청 API에서 header에 `X-XSRF-TOKEN: {{XSRF-TOKEN | urlDecode}}`추가해서 요청
 
+csrf-cookie로 XSRF-TOTKEN은 가져와지는것까지는 성공!
+그런데 토큰을 가져오고 set-cookie로 쿠키까지 저장된다. 그리고 `/login`을 하게되면 405에러가 난다.
+쿠키를제거하고 다시요청하면 header에 `X-XSRF-TOKEN`는 들어간체로 cookie는 없게 요청된다. 이때는 200으로 요청이 성공한다. why? 어떻게해야하나?
+
 ## 참고
 
 - https://github.com/Hansanghyeon/laravel-starter
 - https://www.toptal.com/laravel/restful-laravel-api-tutorial
+- 인증
+  - https://njoguamos.me.ke/posts/preparing-a-laravel-api-backend-for-spa-authentication-using-sanctum

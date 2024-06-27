@@ -15,11 +15,15 @@ return [
     |
     */
 
-    'paths' => ['*'],
+    'paths' => ['api/*', 'telescope/*', 'login', 'register', 'logout', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('FRONTEND_URL', 'http://localhost:3000')],
+    'allowed_origins' => [
+        '*'
+        // env('FRONTEND_URL', 'http://localhost:3000'), // spa client
+        // 'http://localhost:5431' // vscode thunder client
+    ],
 
     'allowed_origins_patterns' => [],
 
